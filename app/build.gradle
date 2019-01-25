@@ -34,6 +34,9 @@ dependencies {
     //Application dependencies
     implementation applicationDependencies.kotlin
     implementation applicationDependencies.kotlinCoroutines
+    implementation applicationDependencies.appCompat
+    implementation applicationDependencies.material
+    implementation applicationDependencies.constraintLayout
     implementation applicationDependencies.retrofit
     implementation applicationDependencies.retrofitConverter
     implementation applicationDependencies.moshi
