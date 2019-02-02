@@ -1,5 +1,6 @@
 package com.maruiz.bookapp.data.extensions
 
+import android.util.Log
 import arrow.core.Either
 import arrow.core.Left
 import arrow.core.Right
@@ -13,4 +14,8 @@ fun <T, R> Call<T>.makeRequest(transform: (T) -> R, default: T): Either<Failure,
             if (it.isSuccessful) Right(it.body())
             else Left(Failure.ServerError())
         }
-    }.fold({ Left(Failure.ServerError()) }, { it.map { transform((it ?: default)) } })
+    }.fold(
+        { Log.e(TAG, "Error retriven data", it); Left(Failure.ServerError()) },
+        { it.map { transform(it ?: default) } })
+
+const val TAG = "makeRequet"

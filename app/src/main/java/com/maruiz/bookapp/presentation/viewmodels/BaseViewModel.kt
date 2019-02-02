@@ -15,6 +15,7 @@
  */
 package com.maruiz.bookapp.presentation.viewmodels
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.maruiz.bookapp.data.errors.Failure
@@ -26,7 +27,9 @@ import com.maruiz.bookapp.data.errors.Failure
  */
 abstract class BaseViewModel : ViewModel() {
 
-    var failure: MutableLiveData<Failure> = MutableLiveData()
+    private val failure: MutableLiveData<Failure> = MutableLiveData()
+
+    fun observeFailure(): LiveData<Failure> = failure
 
     protected fun handleFailure(failure: Failure) {
         this.failure.value = failure

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BookApp</string>
+    <string name="error_request_books">Ups! We had problems retrieving the books</string>
+    <string name="retry">RETRY</string>
 </resources>
